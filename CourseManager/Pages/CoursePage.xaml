@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:CourseManager.ViewModel"
+             x:Class="CourseManager.CoursePage"
+             NavigationPage.HasBackButton="False">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="logo.jpg"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Start" />
+            <Label Text="  Courses"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   TextColor="White" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="add.png" Text="Add Course" Clicked="Add_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.BindingContext>
+        <viewmodel:CourseViewModel></viewmodel:CourseViewModel>
+    </ContentPage.BindingContext>
+    <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="White">
+        <StackLayout BackgroundColor="Gray" Padding="1">
+            <Label x:Name="EmptyMessage" HeightRequest="700" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Text="No courses to display... Tap here to add a new course." IsVisible="False" BackgroundColor="White" />
+            <ListView  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White"
+          CachingStrategy="RecycleElement"
+          x:Name="CoursesListView"
+          ItemsSource="{Binding Courses}"
+          ItemTapped="CoursesListView_ItemTapped"
+          HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid x:Name="CourseGrid" Margin="5" BackgroundColor="White" RowSpacing="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25"></RowDefinition>
+                                    <RowDefinition Height="25"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="55"></ColumnDefinition>
+                                    <ColumnDefinition Width="130"></ColumnDefinition>
+                                    <ColumnDefinition Width="20"></ColumnDefinition>
+                                    <ColumnDefinition Width="130"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <!--<BoxView BackgroundColor="Yellow" Grid.Row="0" Grid.Column="0"></BoxView>
+                                <BoxView BackgroundColor="Red" Grid.Row="0" Grid.Column="1"></BoxView>
+                                <BoxView BackgroundColor="Blue" Grid.Row="0" Grid.Column="2"></BoxView>
+                                <BoxView BackgroundColor="Green" Grid.Row="0" Grid.Column="3"></BoxView>
+                                <BoxView BackgroundColor="Orange" Grid.Row="0" Grid.Column="4"></BoxView>-->
+                                <Image x:Name="ImgSchool" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Source="school.png"></Image>
+                                <Label x:Name="LblCourseCode" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="End" Style="{StaticResource MediumHeaderStyle}" Text="{Binding CourseCode}" Margin="3"  FontAttributes="Bold"  ></Label>
+                                <Label x:Name="LblCu" Grid.Row="0" Grid.Column="3" HorizontalOptions="Start" VerticalOptions="End" Style="{StaticResource MediumHeaderStyle}" Text="{Binding Cu, StringFormat='{0} CU'}" Margin="3"  FontAttributes="Bold"  ></Label>
+                                <Label x:Name="LblStart" Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="End" Margin="3" Text="{Binding Start, StringFormat='Start: {0}', Converter={StaticResource DateTimeToDateConverter}}}" Style="{StaticResource SmallHeaderStyle}" FontAttributes="Bold"></Label>
+                                <Label x:Name="LblEnd" Grid.Row="1" Grid.Column="3" HorizontalOptions="Start" VerticalOptions="End" Margin="3" Text="{Binding End,  StringFormat = 'End: {0}', Converter={StaticResource DateTimeToDateConverter}}}" Style="{StaticResource SmallHeaderStyle}" FontAttributes="Bold"></Label>
+                                <Label x:Name="LblName" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource SmallLabelStyle}" Text="{Binding Name}" Margin="3"></Label>
+                                <ImageButton x:Name ="BtnEdit" Grid.Row ="0" Grid.Column="4" Grid.RowSpan="3" BackgroundColor="Transparent" HorizontalOptions="End"  Source="edit.png"  CommandParameter="{Binding Id}" Clicked="BtnEdit_Clicked"></ImageButton>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

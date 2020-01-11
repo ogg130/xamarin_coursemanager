@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:CourseManager.ViewModel"
+             x:Class="CourseManager.CourseDetailPage"
+             NavigationPage.HasBackButton="False">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="logo.jpg"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Start" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.BindingContext>
+        <viewmodel:CourseViewModel></viewmodel:CourseViewModel>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout BackgroundColor="White">
+            <StackLayout BackgroundColor="Gray" Padding="1">
+                <Grid Grid.Row="1" Grid.Column="1" BackgroundColor="White" x:Name="CourseDetailGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="90"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="15"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="260"></RowDefinition>
+                        <RowDefinition Height="15"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="120"></RowDefinition>
+                        <RowDefinition Height="15"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".1*"></ColumnDefinition>
+                        <ColumnDefinition Width=".15*"></ColumnDefinition>
+                        <ColumnDefinition Width=".15*"></ColumnDefinition>
+                        <ColumnDefinition Width=".15*"></ColumnDefinition>
+                        <ColumnDefinition Width=".15*"></ColumnDefinition>
+                        <ColumnDefinition Width=".15*"></ColumnDefinition>
+                        <ColumnDefinition Width=".15*"></ColumnDefinition>
+                        <ColumnDefinition Width=".1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="LblHeader"
+           Text="Edit Course Details"
+           Grid.Row="0"
+           Grid.Column="1"
+           Grid.ColumnSpan="5"
+           Style="{StaticResource LargeHeaderStyle}"></Label>
+
+                    <Label x:Name="LblCourseCode" Grid.Row="1" Grid.Column="1" Text="Course Code:" HorizontalOptions="End" VerticalOptions="Center"></Label>
+                    <Entry x:Name="TxtCourseCode" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Course.CourseCode, Mode=OneTime}" ></Entry>
+                    <Label x:Name="LblCu" Grid.Row="1" Grid.Column="4" Text="CUs:" HorizontalOptions="End" VerticalOptions="Center"></Label>
+                    <Entry x:Name="TxtCu" Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" Keyboard="Numeric" Text="{Binding Course.Cu, Mode=OneTime}" ></Entry>
+
+                    <Label x:Name="LblName" Grid.Row="2" Grid.Column="1"  Text="Course Name:" HorizontalOptions="End" VerticalOptions="Center" ></Label>
+
+                    <StackLayout Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="5"  BackgroundColor="White">
+                        <StackLayout HeightRequest="90" BackgroundColor="Gray" Padding="1">
+                            <Editor x:Name="TxtName" HeightRequest="90"  BackgroundColor="White" Style="{StaticResource RegularEditorStyle}" Text="{Binding Course.Name, Mode=OneTime}" ></Editor>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Label x:Name="LblStart" Grid.Row="3" Grid.Column="1"  Text="Start:" HorizontalOptions="End" VerticalOptions="Center"></Label>
+                    <DatePicker x:Name="DtpStart" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Date="{Binding Course.Start, Mode=OneTime}" ></DatePicker>
+                    <Label x:Name="LblEnd" Grid.Row="3" Grid.Column="4" Text="End:" HorizontalOptions="End" VerticalOptions="Center"></Label>
+                    <DatePicker x:Name="DtpEnd" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Date="{Binding Course.End, Mode=OneTime}" ></DatePicker>
+
+                    <Label x:Name="LblDueDate" Grid.Row="4" Grid.Column="1" Text="Due Date:" HorizontalOptions="End" VerticalOptions="Center"></Label>
+                    <DatePicker x:Name="DtpDueDate" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Date="{Binding Course.DueDate, Mode=OneTime}"></DatePicker>
+                    <Label x:Name="LnlStatus" Grid.Row="4" Grid.Column="4" Text="Status:" HorizontalOptions="End" VerticalOptions="Center"></Label>
+                    <Picker x:Name="PkrStatus" Title="Select a status:" Grid.Row="4" Grid.Column="5" SelectedItem="{Binding Course.Status, Mode=OneTime}" Grid.ColumnSpan="2">
+                        <Picker.Items>
+                            <x:String>In Progress</x:String>
+                            <x:String>Completed</x:String>
+                            <x:String>Dropped</x:String>
+                            <x:String>Plan to Take</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Label x:Name="LblAssessmentInfo" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="4"  Style="{StaticResource MediumHeaderStyle}" Text="Assessment Information:" ></Label>
+                    <ImageButton x:Name ="BtnAdd" Grid.Row ="6" Grid.Column="6" BackgroundColor="Transparent" VerticalOptions="Center"  Source="addblue.png" Clicked="BtnAddAssessment_Clicked"></ImageButton>
+
+                    <StackLayout Grid.Row="7" Grid.ColumnSpan ="6" Grid.Column="1"  BackgroundColor="White">
+                        <StackLayout HeightRequest="260" BackgroundColor="Gray" Padding="1">
+                            <Label x:Name="EmptyMessage"  HeightRequest="260" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Text="No assessments to display..." IsVisible="False" BackgroundColor="White" />
+                            <ListView x:Name="LstAssessments" HeightRequest="260" Grid.Row="7" Grid.ColumnSpan ="6" Grid.Column="1" VerticalOptions="FillAndExpand"
+            CachingStrategy="RecycleElement"
+            ItemsSource="{Binding Assessments}"
+            HasUnevenRows="true" BackgroundColor="White">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid x:Name="AssessmentGrid" Margin="5" BackgroundColor="White" RowSpacing="2">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="20"></RowDefinition>
+                                                    <RowDefinition Height="40"></RowDefinition>
+                                                    <RowDefinition Height="20"></RowDefinition>
+                                                    <RowDefinition Height="40"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width=".16*"></ColumnDefinition>
+                                                    <ColumnDefinition Width=".16*"></ColumnDefinition>
+                                                    <ColumnDefinition Width=".16*"></ColumnDefinition>
+                                                    <ColumnDefinition Width=".16*"></ColumnDefinition>
+                                                    <ColumnDefinition Width=".16*"></ColumnDefinition>
+                                                    <ColumnDefinition Width=".16*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label x:Name="LblAssessmentName" Grid.Row="0" Grid.Column="0" Text="Name" Style="{StaticResource SmallLabelStyle}"></Label>
+                                                <Entry x:Name="TxtAssessmentName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Name}" Style="{StaticResource RegularEntry}"></Entry>
+
+                                                <Label x:Name="LblAssessmentType" Grid.Row="2" Grid.Column="0" Text="Type" Style="{StaticResource SmallLabelStyle}"></Label>
+                                                <Picker x:Name="PkrAssessmentType" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" SelectedItem="{Binding Type}" Title="Select an assessment type:">
+                                                    <Picker.Items>
+                                                        <x:String>Objective</x:String>
+                                                        <x:String>Performance</x:String>
+                                                    </Picker.Items>
+                                                </Picker>
+
+                                                <Label x:Name="LblAssessmentStart" Grid.Row="0" Grid.Column="3" Text="Start"  Style="{StaticResource SmallLabelStyle}"></Label>
+                                                <DatePicker x:Name="DtpAssessmentStart" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Date="{Binding Start}"></DatePicker>
+
+                                                <Label x:Name="LblAssessmentEnd"  Grid.Row="2" Grid.Column="3" Text="End" Style="{StaticResource SmallLabelStyle}"></Label>
+                                                <DatePicker x:Name="DtpAssessmentEnd" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" Date="{Binding End}"></DatePicker>
+
+                                                <ImageButton x:Name ="BtnDelete" Grid.Row ="0" Grid.Column="5" Grid.RowSpan="4" BackgroundColor="Transparent" HorizontalOptions="End" VerticalOptions="Center"  Source="delete.png"  CommandParameter="{Binding Id}" Clicked="BtnDeleteAssessment_Clicked"></ImageButton>
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Label x:Name="LblDetailedNotes" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="6" Style="{StaticResource MediumHeaderStyle}" Text="Detailed Notes:"></Label>
+                    <StackLayout Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="6" BackgroundColor="White">
+                        <StackLayout BackgroundColor="Gray" Padding="1">
+                            <Grid x:Name="NotesGrid" HeightRequest="120"  BackgroundColor="White" RowSpacing="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="120"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".1*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".75*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".15*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Editor x:Name="TxtNotes" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5"  HeightRequest="120" BackgroundColor="White" Text="{Binding Course.Notes, Mode=OneTime}" Style="{StaticResource RegularEditorStyle}" IsTabStop="False"></Editor>
+
+                                <ImageButton x:Name ="BtnShare" Grid.Row ="0" Grid.Column="6" BackgroundColor="White" HeightRequest="120" HorizontalOptions="End" VerticalOptions="Center"  Source="share.png" Clicked="BtnShare_Clicked">
+                                </ImageButton>
+                            </Grid>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Label x:Name="LblInstructorInfo" Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="6"  Style="{StaticResource MediumHeaderStyle}" Text="Instructor Information:"></Label>
+
+                    <Label x:Name="LblInstructorName" Grid.Row="13" Grid.Column="1"  Text="Name:" HorizontalOptions="End" VerticalOptions="Center"></Label>
+                    <Entry x:Name="TxtInstructorName" Grid.Row="13" Grid.Column="2" Grid.ColumnSpan="5" Text="{Binding Course.InstructorName, Mode=OneTime}" ></Entry>
+
+                    <Label x:Name="LblInstructorEmail" Grid.Row="14" Grid.Column="1"  Text="Email:" HorizontalOptions="End" VerticalOptions="Center"></Label>
+                    <Entry x:Name="TxtInstructorEmail" Grid.Row="14" Grid.Column="2" Grid.ColumnSpan="5" Keyboard="Email" Text="{Binding Course.InstructorEmail, Mode=OneTime}" ></Entry>
+
+                    <Label x:Name="LblInstructorPhone" Grid.Row="15" Grid.Column="1"  Text="Phone:" HorizontalOptions="End" VerticalOptions="Center"></Label>
+                    <Entry x:Name="TxtInstructorPhone" Grid.Row="15" Grid.Column="2" Grid.ColumnSpan="5" Keyboard="Telephone" Text="{Binding Course.InstructorPhone, Mode=OneTime}" ></Entry>
+
+                    <Button x:Name="BtnSave" Grid.Row ="16" Grid.Column="2" Grid.ColumnSpan="2" Text="Save Course" CommandParameter="{Binding Course.Id}" Clicked="Save_Clicked" Style="{StaticResource RegularButtonStyle}"></Button>
+                    <Button x:Name="BtnDelete" Grid.Row ="16" Grid.Column="4" Grid.ColumnSpan="2" Text="Delete Course" CommandParameter="{Binding Course.Id}" Clicked="Delete_Clicked" Style="{StaticResource RegularButtonStyle}"></Button>
+
+                    <Label x:Name="LblCourseId" Text="{Binding Course.Id, Mode=OneTime}" IsVisible="false"></Label>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
