@@ -8762,11 +8762,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\repos\\CourseManager\\CourseManager.UWP\\CourseManager.UWP.csproj",
+      "projectUniqueName": "D:\\repos\\CourseManager\\CourseManager.UWP\\CourseManager.UWP.csproj",
       "projectName": "CourseManager.UWP",
-      "projectPath": "d:\\repos\\CourseManager\\CourseManager.UWP\\CourseManager.UWP.csproj",
+      "projectPath": "D:\\repos\\CourseManager\\CourseManager.UWP\\CourseManager.UWP.csproj",
       "packagesPath": "C:\\Users\\Robert\\.nuget\\packages\\",
-      "outputPath": "d:\\repos\\CourseManager\\CourseManager.UWP\\obj\\",
+      "outputPath": "D:\\repos\\CourseManager\\CourseManager.UWP\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -8788,8 +8788,8 @@
       "frameworks": {
         "uap10.0.16299": {
           "projectReferences": {
-            "d:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj": {
-              "projectPath": "d:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj"
+            "D:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj": {
+              "projectPath": "D:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj"
             }
           }
         }

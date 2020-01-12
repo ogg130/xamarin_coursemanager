@@ -4492,14 +4492,14 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F06002A
 			public const int cardview_shadow_start_color = 2131099690;
 			
-			// aapt resource value: 0x7F040005
-			public const int colorAccent = 2130968581;
+			// aapt resource value: 0x7F050005
+			public const int colorAccent = 2131034117;
 			
-			// aapt resource value: 0x7F040003
-			public const int colorPrimary = 2130968579;
+			// aapt resource value: 0x7F050003
+			public const int colorPrimary = 2131034115;
 			
-			// aapt resource value: 0x7F040004
-			public const int colorPrimaryDark = 2130968580;
+			// aapt resource value: 0x7F050004
+			public const int colorPrimaryDark = 2131034116;
 			
 			// aapt resource value: 0x7F06002B
 			public const int design_bottom_navigation_shadow_color = 2131099691;
@@ -4570,8 +4570,8 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F060041
 			public const int highlighted_text_material_light = 2131099713;
 			
-			// aapt resource value: 0x7F040002
-			public const int launcher_background = 2130968578;
+			// aapt resource value: 0x7F050002
+			public const int launcher_background = 2131034114;
 			
 			// aapt resource value: 0x7F060042
 			public const int material_blue_grey_800 = 2131099714;
@@ -5721,11 +5721,32 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F090054
 			public const int abc_vector_test = 2131296340;
 			
+			// aapt resource value: 0x7F010002
+			public const int add = 2130771970;
+			
+			// aapt resource value: 0x7F010003
+			public const int addblue = 2130771971;
+			
+			// aapt resource value: 0x7F010004
+			public const int appicon = 2130771972;
+			
 			// aapt resource value: 0x7F090055
 			public const int avd_hide_password = 2131296341;
 			
 			// aapt resource value: 0x7F090056
 			public const int avd_show_password = 2131296342;
+			
+			// aapt resource value: 0x7F010005
+			public const int back = 2130771973;
+			
+			// aapt resource value: 0x7F010006
+			public const int backgrounda = 2130771974;
+			
+			// aapt resource value: 0x7F010007
+			public const int backgroundb = 2130771975;
+			
+			// aapt resource value: 0x7F010008
+			public const int backgroundc = 2130771976;
 			
 			// aapt resource value: 0x7F090057
 			public const int design_bottom_navigation_item_background = 2131296343;
@@ -5744,6 +5765,9 @@ namespace CourseManager.Droid
 			
 			// aapt resource value: 0x7F09005C
 			public const int design_snackbar_background = 2131296348;
+			
+			// aapt resource value: 0x7F010009
+			public const int edit = 2130771977;
 			
 			// aapt resource value: 0x7F090055
 			public const int ic_audiotrack_dark = 2131296341;
@@ -6285,6 +6309,9 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F090105
 			public const int ic_vol_type_tv_light = 2131296517;
 			
+			// aapt resource value: 0x7F010010
+			public const int logo = 2130771984;
+			
 			// aapt resource value: 0x7F090106
 			public const int mr_button_connected_dark = 2131296518;
 			
@@ -6390,8 +6417,14 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F09000C
 			public const int notify_panel_notification_icon_bg = 2131296268;
 			
-			// aapt resource value: 0x7F060002
-			public const int plugin_lc_smallicon = 2131099650;
+			// aapt resource value: 0x7F010013
+			public const int plugin_lc_smallicon = 2130771987;
+			
+			// aapt resource value: 0x7F010011
+			public const int school = 2130771985;
+			
+			// aapt resource value: 0x7F010012
+			public const int share = 2130771986;
 			
 			// aapt resource value: 0x7F09006F
 			public const int tooltip_frame_dark = 2131296367;
@@ -6490,11 +6523,11 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F0C0008
 			public const int bottom = 2131492872;
 			
-			// aapt resource value: 0x7F010213
-			public const int bottomtab.navarea = 2130772499;
+			// aapt resource value: 0x7F020213
+			public const int bottomtab.navarea = 2130838035;
 			
-			// aapt resource value: 0x7F010214
-			public const int bottomtab.tabbar = 2130772500;
+			// aapt resource value: 0x7F020214
+			public const int bottomtab.tabbar = 2130838036;
 			
 			// aapt resource value: 0x7F0C0009
 			public const int browser_actions_header_text = 2131492873;
@@ -6589,11 +6622,11 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F0C0031
 			public const int @fixed = 2131492913;
 			
-			// aapt resource value: 0x7F010215
-			public const int flyoutcontent_appbar = 2130772501;
+			// aapt resource value: 0x7F020215
+			public const int flyoutcontent_appbar = 2130838037;
 			
-			// aapt resource value: 0x7F010216
-			public const int flyoutcontent_recycler = 2130772502;
+			// aapt resource value: 0x7F020216
+			public const int flyoutcontent_recycler = 2130838038;
 			
 			// aapt resource value: 0x7F0C0009
 			public const int forever = 2131492873;
@@ -6646,17 +6679,17 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F0C0042
 			public const int list_item = 2131492930;
 			
-			// aapt resource value: 0x7F010217
-			public const int main.appbar = 2130772503;
+			// aapt resource value: 0x7F020217
+			public const int main.appbar = 2130838039;
 			
-			// aapt resource value: 0x7F010220
-			public const int main.scrollview = 2130772512;
+			// aapt resource value: 0x7F020220
+			public const int main.scrollview = 2130838048;
 			
-			// aapt resource value: 0x7F010219
-			public const int main.tablayout = 2130772505;
+			// aapt resource value: 0x7F020219
+			public const int main.tablayout = 2130838041;
 			
-			// aapt resource value: 0x7F010218
-			public const int main.toolbar = 2130772504;
+			// aapt resource value: 0x7F020218
+			public const int main.toolbar = 2130838040;
 			
 			// aapt resource value: 0x7F0C0043
 			public const int masked = 2131492931;
@@ -6928,20 +6961,20 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F0C006C
 			public const int select_dialog_listview = 2131492972;
 			
-			// aapt resource value: 0x7F010221
-			public const int shellcontent.appbar = 2130772513;
+			// aapt resource value: 0x7F020221
+			public const int shellcontent.appbar = 2130838049;
 			
-			// aapt resource value: 0x7F010223
-			public const int shellcontent.scrollview = 2130772515;
+			// aapt resource value: 0x7F020223
+			public const int shellcontent.scrollview = 2130838051;
 			
-			// aapt resource value: 0x7F010222
-			public const int shellcontent.toolbar = 2130772514;
+			// aapt resource value: 0x7F020222
+			public const int shellcontent.toolbar = 2130838050;
 			
 			// aapt resource value: 0x7F0C006E
 			public const int shortcut = 2131492974;
 			
-			// aapt resource value: 0x7F010002
-			public const int sliding_tabs = 2130771970;
+			// aapt resource value: 0x7F020002
+			public const int sliding_tabs = 2130837506;
 			
 			// aapt resource value: 0x7F0C006F
 			public const int smallLabel = 2131492975;
@@ -7030,8 +7063,8 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F0C008A
 			public const int title_template = 2131493002;
 			
-			// aapt resource value: 0x7F010003
-			public const int toolbar = 2130771971;
+			// aapt resource value: 0x7F020003
+			public const int toolbar = 2130837507;
 			
 			// aapt resource value: 0x7F0C0023
 			public const int top = 2131492899;
@@ -7276,8 +7309,8 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F0F001C
 			public const int abc_tooltip = 2131689500;
 			
-			// aapt resource value: 0x7F020083
-			public const int BottomTabLayout = 2130837635;
+			// aapt resource value: 0x7F030083
+			public const int BottomTabLayout = 2130903171;
 			
 			// aapt resource value: 0x7F0F0001
 			public const int browser_actions_context_menu_page = 2131689473;
@@ -7327,8 +7360,8 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F0F002A
 			public const int design_text_input_password_icon = 2131689514;
 			
-			// aapt resource value: 0x7F020084
-			public const int FlyoutContent = 2130837636;
+			// aapt resource value: 0x7F030084
+			public const int FlyoutContent = 2130903172;
 			
 			// aapt resource value: 0x7F0F001D
 			public const int mr_cast_dialog = 2131689501;
@@ -7423,8 +7456,8 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F0F0006
 			public const int notification_template_part_time = 2131689478;
 			
-			// aapt resource value: 0x7F020085
-			public const int RootLayout = 2130837637;
+			// aapt resource value: 0x7F030085
+			public const int RootLayout = 2130903173;
 			
 			// aapt resource value: 0x7F0F0033
 			public const int select_dialog_item_material = 2131689523;
@@ -7435,17 +7468,17 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F0F0035
 			public const int select_dialog_singlechoice_material = 2131689525;
 			
-			// aapt resource value: 0x7F020086
-			public const int ShellContent = 2130837638;
+			// aapt resource value: 0x7F030086
+			public const int ShellContent = 2130903174;
 			
 			// aapt resource value: 0x7F0F0036
 			public const int support_simple_spinner_dropdown_item = 2131689526;
 			
-			// aapt resource value: 0x7F020002
-			public const int Tabbar = 2130837506;
+			// aapt resource value: 0x7F030002
+			public const int Tabbar = 2130903042;
 			
-			// aapt resource value: 0x7F020003
-			public const int Toolbar = 2130837507;
+			// aapt resource value: 0x7F030003
+			public const int Toolbar = 2130903043;
 			
 			static Layout()
 			{
@@ -7460,14 +7493,14 @@ namespace CourseManager.Droid
 		public partial class Mipmap
 		{
 			
-			// aapt resource value: 0x7F030002
-			public const int icon = 2130903042;
+			// aapt resource value: 0x7F040002
+			public const int icon = 2130968578;
 			
-			// aapt resource value: 0x7F030003
-			public const int icon_round = 2130903043;
+			// aapt resource value: 0x7F040003
+			public const int icon_round = 2130968579;
 			
-			// aapt resource value: 0x7F030004
-			public const int launcher_foreground = 2130903044;
+			// aapt resource value: 0x7F040004
+			public const int launcher_foreground = 2130968580;
 			
 			static Mipmap()
 			{
@@ -7747,8 +7780,8 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F160006
 			public const int Animation_Design_BottomSheetDialog = 2132148230;
 			
-			// aapt resource value: 0x7F050004
-			public const int AppCompatDialogStyle = 2131034116;
+			// aapt resource value: 0x7F060004
+			public const int AppCompatDialogStyle = 2131099652;
 			
 			// aapt resource value: 0x7F160007
 			public const int Base_AlertDialog_AppCompat = 2132148231;
@@ -8323,11 +8356,11 @@ namespace CourseManager.Droid
 			// aapt resource value: 0x7F1600C5
 			public const int CardView_Light = 2132148421;
 			
-			// aapt resource value: 0x7F050002
-			public const int MainTheme = 2131034114;
+			// aapt resource value: 0x7F060002
+			public const int MainTheme = 2131099650;
 			
-			// aapt resource value: 0x7F050003
-			public const int MainTheme_Base = 2131034115;
+			// aapt resource value: 0x7F060003
+			public const int MainTheme_Base = 2131099651;
 			
 			// aapt resource value: 0x7F1600C6
 			public const int Platform_AppCompat = 2132148422;

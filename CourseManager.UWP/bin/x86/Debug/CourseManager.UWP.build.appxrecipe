@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>ec0cc741-fd3e-485c-81be-68815c480690</PackageIdentityName>
     <PackageIdentityPublisher>CN=116ad92a-40d8-4a89-aa0b-cedd34734284</PackageIdentityPublisher>
-    <IntermediateOutputPath>d:\repos\CourseManager\CourseManager.UWP\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>D:\repos\CourseManager\CourseManager.UWP\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>d:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>D:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="d:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="D:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\CourseManager.UWP.exe">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\CourseManager.UWP.exe">
       <PackagePath>entrypoint\CourseManager.UWP.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Robert\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.1.9\runtimes\win10-x86\nativeassets\uap10.0.15138\clrcompression.dll">
@@ -562,7 +562,7 @@
     <AppxPackagedFile Include="C:\Users\Robert\.nuget\packages\xamarin.forms\4.0.0.425677\lib\uap10.0\Xamarin.Forms.Xaml.dll">
       <PackagePath>Xamarin.Forms.Xaml.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager\bin\Debug\netstandard2.0\CourseManager.dll">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager\bin\Debug\netstandard2.0\CourseManager.dll">
       <PackagePath>CourseManager.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Robert\.nuget\packages\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
@@ -571,124 +571,124 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.17763.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\LargeTile.scale-100.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\LargeTile.scale-100.png">
       <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\LargeTile.scale-200.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\LargeTile.scale-200.png">
       <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\LargeTile.scale-400.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\LargeTile.scale-400.png">
       <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\SmallTile.scale-100.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\SmallTile.scale-100.png">
       <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\SmallTile.scale-200.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\SmallTile.scale-200.png">
       <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\SmallTile.scale-400.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\SmallTile.scale-400.png">
       <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\SplashScreen.scale-400.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Square150x150Logo.scale-100.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Square150x150Logo.scale-100.png">
       <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Square150x150Logo.scale-400.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Square150x150Logo.scale-400.png">
       <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.scale-100.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.scale-100.png">
       <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.scale-400.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.scale-400.png">
       <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.targetsize-16.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.targetsize-256.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.targetsize-48.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Square44x44Logo.targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\StoreLogo.scale-200.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\StoreLogo.scale-200.png">
       <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\StoreLogo.scale-400.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\StoreLogo.scale-400.png">
       <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Wide310x150Logo.scale-100.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Wide310x150Logo.scale-100.png">
       <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Assets\Wide310x150Logo.scale-400.png">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Assets\Wide310x150Logo.scale-400.png">
       <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\CourseManager.UWP.xr.xml">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\CourseManager.UWP.xr.xml">
       <PackagePath>CourseManager.UWP.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
@@ -697,10 +697,10 @@
     <AppxPackagedFile Include="C:\Users\Robert\.nuget\packages\xamarin.forms\4.0.0.425677\lib\uap10.0\Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml">
       <PackagePath>Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\Core\CourseManager.UWP.exe">
+    <AppxPackagedFile Include="D:\repos\CourseManager\CourseManager.UWP\bin\x86\Debug\Core\CourseManager.UWP.exe">
       <PackagePath>CourseManager.UWP.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

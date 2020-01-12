@@ -1,1 +1,1 @@
-d:\repos\CourseManager\CourseManager.UWP\CourseManager.UWP.csproj;x86
+D:\repos\CourseManager\CourseManager.UWP\CourseManager.UWP.csproj;x86

@@ -1392,11 +1392,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\repos\\CourseManager\\CourseManager.iOS\\CourseManager.iOS.csproj",
+      "projectUniqueName": "D:\\repos\\CourseManager\\CourseManager.iOS\\CourseManager.iOS.csproj",
       "projectName": "CourseManager.iOS",
-      "projectPath": "d:\\repos\\CourseManager\\CourseManager.iOS\\CourseManager.iOS.csproj",
+      "projectPath": "D:\\repos\\CourseManager\\CourseManager.iOS\\CourseManager.iOS.csproj",
       "packagesPath": "C:\\Users\\Robert\\.nuget\\packages\\",
-      "outputPath": "d:\\repos\\CourseManager\\CourseManager.iOS\\obj\\",
+      "outputPath": "D:\\repos\\CourseManager\\CourseManager.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1417,8 +1417,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "d:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj": {
-              "projectPath": "d:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj"
+            "D:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj": {
+              "projectPath": "D:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj"
             }
           }
         }

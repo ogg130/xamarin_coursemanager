@@ -4,7 +4,8 @@
              xmlns:viewmodel="clr-namespace:CourseManager.ViewModel"
              x:Class="CourseManager.TermDetailPage"
              Padding="5"
-             NavigationPage.HasBackButton="False">
+             NavigationPage.HasBackButton="False"
+             BackgroundImage="backgrounda.png">
 
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
@@ -19,7 +20,7 @@
     </ContentPage.BindingContext>
 
     <ScrollView>
-        <Grid x:Name="GrdTermDetails" BackgroundColor="White">
+        <Grid x:Name="GrdTermDetails" BackgroundColor="Transparent">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>

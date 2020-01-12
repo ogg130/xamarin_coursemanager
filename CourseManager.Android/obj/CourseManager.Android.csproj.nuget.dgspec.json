@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\repos\\CourseManager\\CourseManager.Android\\CourseManager.Android.csproj": {}
+    "D:\\repos\\CourseManager\\CourseManager.Android\\CourseManager.Android.csproj": {}
   },
   "projects": {
-    "d:\\repos\\CourseManager\\CourseManager.Android\\CourseManager.Android.csproj": {
+    "D:\\repos\\CourseManager\\CourseManager.Android\\CourseManager.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\repos\\CourseManager\\CourseManager.Android\\CourseManager.Android.csproj",
+        "projectUniqueName": "D:\\repos\\CourseManager\\CourseManager.Android\\CourseManager.Android.csproj",
         "projectName": "CourseManager.Android",
-        "projectPath": "d:\\repos\\CourseManager\\CourseManager.Android\\CourseManager.Android.csproj",
+        "projectPath": "D:\\repos\\CourseManager\\CourseManager.Android\\CourseManager.Android.csproj",
         "packagesPath": "C:\\Users\\Robert\\.nuget\\packages\\",
-        "outputPath": "d:\\repos\\CourseManager\\CourseManager.Android\\obj\\",
+        "outputPath": "D:\\repos\\CourseManager\\CourseManager.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "d:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj": {
-                "projectPath": "d:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj"
+              "D:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj": {
+                "projectPath": "D:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj"
               }
             }
           }
@@ -82,14 +82,14 @@
         }
       }
     },
-    "d:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj": {
+    "D:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj",
+        "projectUniqueName": "D:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj",
         "projectName": "CourseManager",
-        "projectPath": "d:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj",
+        "projectPath": "D:\\repos\\CourseManager\\CourseManager\\CourseManager.csproj",
         "packagesPath": "C:\\Users\\Robert\\.nuget\\packages\\",
-        "outputPath": "d:\\repos\\CourseManager\\CourseManager\\obj\\",
+        "outputPath": "D:\\repos\\CourseManager\\CourseManager\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

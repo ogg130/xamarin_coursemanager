@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:CourseManager.ViewModel"
              x:Class="CourseManager.TermPage"
-             NavigationPage.HasBackButton="False">
+             NavigationPage.HasBackButton="False"
+             BackgroundImage="backgrounda.png">
 
     <NavigationPage.TitleView>
 
@@ -29,41 +30,40 @@
         <viewmodel:TermViewModel></viewmodel:TermViewModel>
     </ContentPage.BindingContext>
 
-    <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="White">
-        <StackLayout BackgroundColor="Gray" Padding="1">
-            <Label x:Name="EmptyMessage" HeightRequest="700" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Text="No terms to display... Tap here to add a new term." IsVisible="False" BackgroundColor="White" />
-            <ListView  Grid.Row="0" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White"
+    <StackLayout BackgroundColor="Transparent">
+
+        <Label x:Name="EmptyMessage" HeightRequest="700" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Text="No terms to display... Tap here to add a new term." IsVisible="False" BackgroundColor="Transparent" />
+        <ListView  Grid.Row="0" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"
           CachingStrategy="RecycleElement"
           x:Name="lstTerms"
           ItemTapped="LstTerms_ItemTapped"
           ItemsSource="{Binding Terms}"
           HasUnevenRows="true">
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid x:Name="TermGrid"  BackgroundColor="White"  RowSpacing="2">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="50"></RowDefinition>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="55"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="85"></ColumnDefinition>
-                                    <ColumnDefinition Width="85"></ColumnDefinition>
-                                    <ColumnDefinition Width ="55"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Image x:Name="ImgSchool" Grid.Row="0" Grid.Column="0" Source="school.png"></Image>
-                                <Label x:Name="LblName" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource MediumHeaderStyle}" Text="{Binding Name}" Margin="3"  FontAttributes="Bold"  ></Label>
-                                <Label x:Name="LblStart" Grid.Row="0" Grid.Column="2"  Margin="3" Text="{Binding Start, StringFormat='Start Date: {0}', Converter={StaticResource DateTimeToDateConverter}}" Style="{StaticResource SmallLabelStyle}" FontAttributes="Bold"></Label>
-                                <Label x:Name="LblEnd" Grid.Row="0" Grid.Column="3"   Margin="3" Text="{Binding End,  StringFormat = 'End Date: {0}', Converter={StaticResource DateTimeToDateConverter}}" Style="{StaticResource SmallLabelStyle}" FontAttributes="Bold"></Label>
-                                <ImageButton x:Name ="BtnEdit" Grid.Row ="0" Grid.Column="4" BackgroundColor="Transparent" HorizontalOptions="End" VerticalOptions="Center"  Source="edit.png"  CommandParameter="{Binding Id}" Clicked="BtnEdit_Clicked"></ImageButton>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid x:Name="TermGrid"  BackgroundColor="White"  RowSpacing="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="55"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="85"></ColumnDefinition>
+                                <ColumnDefinition Width="85"></ColumnDefinition>
+                                <ColumnDefinition Width ="55"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="ImgSchool" Grid.Row="0" Grid.Column="0" Source="school.png"></Image>
+                            <Label x:Name="LblName" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource MediumHeaderStyle}" Text="{Binding Name}" Margin="3"  FontAttributes="Bold"  ></Label>
+                            <Label x:Name="LblStart" Grid.Row="0" Grid.Column="2"  Margin="3" Text="{Binding Start, StringFormat='Start Date: {0}', Converter={StaticResource DateTimeToDateConverter}}" Style="{StaticResource SmallLabelStyle}" FontAttributes="Bold"></Label>
+                            <Label x:Name="LblEnd" Grid.Row="0" Grid.Column="3"   Margin="3" Text="{Binding End,  StringFormat = 'End Date: {0}', Converter={StaticResource DateTimeToDateConverter}}" Style="{StaticResource SmallLabelStyle}" FontAttributes="Bold"></Label>
+                            <ImageButton x:Name ="BtnEdit" Grid.Row ="0" Grid.Column="4" BackgroundColor="Transparent" HorizontalOptions="End" VerticalOptions="Center"  Source="edit.png"  CommandParameter="{Binding Id}" Clicked="BtnEdit_Clicked"></ImageButton>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 </ContentPage>
