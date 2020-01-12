@@ -133,14 +133,15 @@ namespace CourseManager
                         CrossLocalNotifications.Current.Show(noteTitle, noteMessage, newNote.Id, date);
                     }
                 }
-
-                var emptyMessage_Tap = new TapGestureRecognizer();
-                emptyMessage_Tap.Tapped += async (s, e) =>
-                {
-                    await AddTerm();
-                };
-                EmptyMessage.GestureRecognizers.Add(emptyMessage_Tap);
             }
+
+            var emptyMessage_Tap = new TapGestureRecognizer();
+            emptyMessage_Tap.Tapped += async (s, e) =>
+            {
+                await AddTerm();
+            };
+            EmptyMessage.GestureRecognizers.Add(emptyMessage_Tap);
+
             var termz = await App.Database.GetTermsAsync();
             if (termz.Count > 0)
             {
@@ -188,7 +189,7 @@ namespace CourseManager
                 BindingContext = detailViewModel
             };
 
-            await this.Navigation.PushAsync(page);
+            await this.Navigation.PushAsync(page, true);
         }
 
         public async void BtnAdd_Clicked(object sender, EventArgs e)
@@ -205,7 +206,7 @@ namespace CourseManager
                 BindingContext = detailViewModel
             };
 
-            await this.Navigation.PushAsync(detailPage);
+            await this.Navigation.PushAsync(detailPage, true);
         }
 
         private async void LstTerms_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -225,7 +226,7 @@ namespace CourseManager
                 BindingContext = courseViewModel
             };
 
-            await this.Navigation.PushAsync(coursePage);
+            await this.Navigation.PushAsync(coursePage, true);
         }
     }
 }

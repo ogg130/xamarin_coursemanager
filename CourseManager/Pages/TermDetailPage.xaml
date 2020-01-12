@@ -5,7 +5,7 @@
              x:Class="CourseManager.TermDetailPage"
              Padding="5"
              NavigationPage.HasBackButton="False"
-             BackgroundImage="backgrounda.png">
+             BackgroundImage="background.png">
 
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">

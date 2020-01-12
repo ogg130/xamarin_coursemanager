@@ -57,7 +57,7 @@ namespace CourseManager
                 BindingContext = viewModel
             };
 
-            await this.Navigation.PushAsync(page);
+            await this.Navigation.PushAsync(page, true);
         }
 
         private async void BtnSave_Clicked(object sender, EventArgs e)

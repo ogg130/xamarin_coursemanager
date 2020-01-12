@@ -77,7 +77,7 @@ namespace CourseManager
                 BindingContext = pageViewModel
             };
 
-            this.Navigation.PushAsync(page);
+            this.Navigation.PushAsync(page, true);
             return true;
         }
 
@@ -107,7 +107,7 @@ namespace CourseManager
                     BindingContext = detailViewModel // Set the binding context
                 };
 
-                await this.Navigation.PushAsync(detailPage);
+                await this.Navigation.PushAsync(detailPage, true);
             }
         }
 
@@ -127,7 +127,7 @@ namespace CourseManager
                 BindingContext = viewModel
             };
 
-            await this.Navigation.PushAsync(page);
+            await this.Navigation.PushAsync(page, true);
         }
 
         private async void CoursesListView_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -145,7 +145,7 @@ namespace CourseManager
                 BindingContext = viewModel
             };
 
-            await this.Navigation.PushAsync(page);
+            await this.Navigation.PushAsync(page, true);
         }
     }
 }

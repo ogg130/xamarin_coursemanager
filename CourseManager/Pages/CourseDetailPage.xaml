@@ -2,9 +2,98 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:CourseManager.ViewModel"
+             xmlns:AssessmentGridSelector="clr-namespace:CourseManager.Selector"
              x:Class="CourseManager.CourseDetailPage"
              NavigationPage.HasBackButton="False"
-             BackgroundImage="backgrounda.png">
+             BackgroundImage="background.png">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="evenTemplate">
+                <ViewCell>
+                    <Grid x:Name="AssessmentGrid" RowSpacing="2" BackgroundColor="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".16*"></ColumnDefinition>
+                            <ColumnDefinition Width=".16*"></ColumnDefinition>
+                            <ColumnDefinition Width=".16*"></ColumnDefinition>
+                            <ColumnDefinition Width=".16*"></ColumnDefinition>
+                            <ColumnDefinition Width=".16*"></ColumnDefinition>
+                            <ColumnDefinition Width=".16*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="LblAssessmentName" Grid.Row="0" Grid.Column="0" Text="Name" Style="{StaticResource SmallLabelStyle}"></Label>
+                        <Entry x:Name="TxtAssessmentName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Name}" Style="{StaticResource RegularEntry}" TextChanged="TxtName_Changed"></Entry>
+
+                        <Label x:Name="LblAssessmentType" Grid.Row="2" Grid.Column="0" Text="Type" Style="{StaticResource SmallLabelStyle}"></Label>
+                        <Picker x:Name="PkrAssessmentType" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" SelectedItem="{Binding Type}" Title="Select an assessment type:">
+                            <Picker.Items>
+                                <x:String>Objective</x:String>
+                                <x:String>Performance</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Label x:Name="LblAssessmentStart" Grid.Row="0" Grid.Column="3" Text="Start"  Style="{StaticResource SmallLabelStyle}"></Label>
+                        <DatePicker x:Name="DtpAssessmentStart" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Date="{Binding Start}"></DatePicker>
+
+                        <Label x:Name="LblAssessmentEnd"  Grid.Row="2" Grid.Column="3" Text="End" Style="{StaticResource SmallLabelStyle}"></Label>
+                        <DatePicker x:Name="DtpAssessmentEnd" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" Date="{Binding End}"></DatePicker>
+
+                        <ImageButton x:Name ="BtnDelete" Grid.Row ="0" Grid.Column="5" Grid.RowSpan="4" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="White" Source="delete.png"  CommandParameter="{Binding Id}" Clicked="BtnDeleteAssessment_Clicked"></ImageButton>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="unevenTemplate">
+                <ViewCell>
+                    <Grid>
+                        <Grid x:Name="AssessmentGrid" RowSpacing="2" BackgroundColor="WhiteSmoke">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="20"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".16*"></ColumnDefinition>
+                                <ColumnDefinition Width=".16*"></ColumnDefinition>
+                                <ColumnDefinition Width=".16*"></ColumnDefinition>
+                                <ColumnDefinition Width=".16*"></ColumnDefinition>
+                                <ColumnDefinition Width=".16*"></ColumnDefinition>
+                                <ColumnDefinition Width=".16*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label x:Name="LblAssessmentName" Grid.Row="0" Grid.Column="0" Text="Name" Style="{StaticResource SmallLabelStyle}"></Label>
+                            <Entry x:Name="TxtAssessmentName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Name}" Style="{StaticResource RegularEntry}" TextChanged="TxtName_Changed"></Entry>
+
+                            <Label x:Name="LblAssessmentType" Grid.Row="2" Grid.Column="0" Text="Type" Style="{StaticResource SmallLabelStyle}"></Label>
+                            <Picker x:Name="PkrAssessmentType" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" SelectedItem="{Binding Type}" Title="Select an assessment type:">
+                                <Picker.Items>
+                                    <x:String>Objective</x:String>
+                                    <x:String>Performance</x:String>
+                                </Picker.Items>
+                            </Picker>
+
+                            <Label x:Name="LblAssessmentStart" Grid.Row="0" Grid.Column="3" Text="Start"  Style="{StaticResource SmallLabelStyle}"></Label>
+                            <DatePicker x:Name="DtpAssessmentStart" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Date="{Binding Start}"></DatePicker>
+
+                            <Label x:Name="LblAssessmentEnd"  Grid.Row="2" Grid.Column="3" Text="End" Style="{StaticResource SmallLabelStyle}"></Label>
+                            <DatePicker x:Name="DtpAssessmentEnd" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" Date="{Binding End}"></DatePicker>
+
+                            <ImageButton x:Name ="BtnDelete" Grid.Row ="0" Grid.Column="5" Grid.RowSpan="4" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="Transparent" Source="delete.png"  CommandParameter="{Binding Id}" Clicked="BtnDeleteAssessment_Clicked"></ImageButton>
+                        </Grid>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+            <AssessmentGridSelector:AssessmentGridSelector x:Key="assessmentGridSelector"
+                EvenTemplate="{StaticResource evenTemplate}"
+                UnevenTemplate="{StaticResource unevenTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
@@ -92,52 +181,11 @@
 
                 <StackLayout Grid.Row="7" Grid.ColumnSpan ="6" Grid.Column="1"  BackgroundColor="Transparent">
                     <StackLayout HeightRequest="260" BackgroundColor="Gray" Padding="1">
-                        <Label x:Name="EmptyMessage"  HeightRequest="260" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Text="No assessments to display..." IsVisible="False" BackgroundColor="Transparent" />
-                        <ListView x:Name="LstAssessments" HeightRequest="260" Grid.Row="7" Grid.ColumnSpan ="6" Grid.Column="1" VerticalOptions="FillAndExpand"
-            CachingStrategy="RecycleElement"
-            ItemsSource="{Binding Assessments}"
-            HasUnevenRows="true" BackgroundColor="White">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell>
-                                        <Grid x:Name="AssessmentGrid" Margin="5" RowSpacing="2">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="20"></RowDefinition>
-                                                <RowDefinition Height="40"></RowDefinition>
-                                                <RowDefinition Height="20"></RowDefinition>
-                                                <RowDefinition Height="40"></RowDefinition>
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width=".16*"></ColumnDefinition>
-                                                <ColumnDefinition Width=".16*"></ColumnDefinition>
-                                                <ColumnDefinition Width=".16*"></ColumnDefinition>
-                                                <ColumnDefinition Width=".16*"></ColumnDefinition>
-                                                <ColumnDefinition Width=".16*"></ColumnDefinition>
-                                                <ColumnDefinition Width=".16*"></ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
-
-                                            <Label x:Name="LblAssessmentName" Grid.Row="0" Grid.Column="0" Text="Name" Style="{StaticResource SmallLabelStyle}"></Label>
-                                            <Entry x:Name="TxtAssessmentName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Name}" Style="{StaticResource RegularEntry}"></Entry>
-
-                                            <Label x:Name="LblAssessmentType" Grid.Row="2" Grid.Column="0" Text="Type" Style="{StaticResource SmallLabelStyle}"></Label>
-                                            <Picker x:Name="PkrAssessmentType" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" SelectedItem="{Binding Type}" Title="Select an assessment type:">
-                                                <Picker.Items>
-                                                    <x:String>Objective</x:String>
-                                                    <x:String>Performance</x:String>
-                                                </Picker.Items>
-                                            </Picker>
-
-                                            <Label x:Name="LblAssessmentStart" Grid.Row="0" Grid.Column="3" Text="Start"  Style="{StaticResource SmallLabelStyle}"></Label>
-                                            <DatePicker x:Name="DtpAssessmentStart" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Date="{Binding Start}"></DatePicker>
-
-                                            <Label x:Name="LblAssessmentEnd"  Grid.Row="2" Grid.Column="3" Text="End" Style="{StaticResource SmallLabelStyle}"></Label>
-                                            <DatePicker x:Name="DtpAssessmentEnd" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" Date="{Binding End}"></DatePicker>
-
-                                            <ImageButton x:Name ="BtnDelete" Grid.Row ="0" Grid.Column="5" Grid.RowSpan="4" BackgroundColor="Transparent" HorizontalOptions="End" VerticalOptions="Center"  Source="delete.png"  CommandParameter="{Binding Id}" Clicked="BtnDeleteAssessment_Clicked"></ImageButton>
-                                        </Grid>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
+                        <Label x:Name="EmptyMessage"  HeightRequest="260" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Text="No assessments to display..." IsVisible="False" BackgroundColor="White" />
+                        <ListView ItemTemplate="{StaticResource assessmentGridSelector}" x:Name="LstAssessments" HeightRequest="260" Grid.Row="7" Grid.ColumnSpan ="6" Grid.Column="1" VerticalOptions="FillAndExpand"
+                            CachingStrategy="RecycleElement"
+                            ItemsSource="{Binding Assessments}"
+                            HasUnevenRows="true" BackgroundColor="White">
                         </ListView>
                     </StackLayout>
                 </StackLayout>
@@ -174,8 +222,8 @@
                 <Label x:Name="LblInstructorPhone" Grid.Row="15" Grid.Column="1"  Text="Phone:" HorizontalOptions="End" VerticalOptions="Center"></Label>
                 <Entry x:Name="TxtInstructorPhone" Grid.Row="15" Grid.Column="2" Grid.ColumnSpan="5" Keyboard="Telephone" Text="{Binding Course.InstructorPhone, Mode=OneTime}" ></Entry>
 
-                <Button x:Name="BtnSave" Grid.Row ="16" Grid.Column="2" Grid.ColumnSpan="2" Text="Save Course" CommandParameter="{Binding Course.Id}" Clicked="Save_Clicked" Style="{StaticResource RegularButtonStyle}"></Button>
-                <Button x:Name="BtnDelete" Grid.Row ="16" Grid.Column="4" Grid.ColumnSpan="2" Text="Delete Course" CommandParameter="{Binding Course.Id}" Clicked="Delete_Clicked" Style="{StaticResource RegularButtonStyle}"></Button>
+                <Button x:Name="BtnSave" Grid.Row ="16" Grid.Column="1" Grid.ColumnSpan="3" Text="Save Course" CommandParameter="{Binding Course.Id}" Clicked="Save_Clicked" Style="{StaticResource RegularButtonStyle}"></Button>
+                <Button x:Name="BtnDelete" Grid.Row ="16" Grid.Column="4" Grid.ColumnSpan="3" Text="Delete Course" CommandParameter="{Binding Course.Id}" Clicked="Delete_Clicked" Style="{StaticResource RegularButtonStyle}"></Button>
 
                 <Label x:Name="LblCourseId" Text="{Binding Course.Id, Mode=OneTime}" IsVisible="false"></Label>
             </Grid>

@@ -15,4 +15,3 @@ D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\XamlC.stamp
 D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\CourseManager.dll
 D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\ref\CourseManager.dll
 D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\CourseManager.pdb
-D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\CourseManager.csprojAssemblyReference.cache

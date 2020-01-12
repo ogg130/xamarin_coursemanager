@@ -22,6 +22,7 @@ namespace CourseManager
         private ObservableCollection<Course> _course;
         private ObservableCollection<Term> _term;
         private ObservableCollection<Assessment> _assessments;
+        private bool _emptyFlag = false;
 
         public CourseDetailPage(bool add, Course rawCourse, Term rawTerm, ObservableCollection<Assessment> assessments)
         {
@@ -139,7 +140,20 @@ namespace CourseManager
                 BindingContext = viewModel;
             };
 
-            await this.Navigation.PushAsync(page);
+            await this.Navigation.PushAsync(page, true);
+        }
+
+        private async void TxtName_Changed(object sender, TextChangedEventArgs e)
+        {
+            var textBox = (Entry)sender;
+            if (textBox.Text == "" || textBox.Text == null)
+            {
+                _emptyFlag = true;
+            }
+            else
+            {
+                _emptyFlag = false;
+            }
         }
 
         private async void BtnShare_Clicked(object sender, EventArgs e)
@@ -160,6 +174,11 @@ namespace CourseManager
 
         private async void Save_Clicked(object sender, EventArgs e)
         {
+            if (_emptyFlag)
+            {
+                await DisplayAlert("Warning - Invalid Data!", "Assessments must have names. Please resolve.", "Ok");
+                return;
+            }
             var course = _course[0];
             int cu = 0;
             var validCu = (int.TryParse(TxtCu.Text, out int n));
@@ -204,37 +223,37 @@ namespace CourseManager
                 invalidEmail = true;
             }
 
-            if (_preDelete != null && _preDelete.Count == 1 && (_preDelete[0].Name == null || _preDelete[0].Name == ""))
+            if (_preDelete != null && (_preDelete.Count == 1 && _preDelete[0].Id != 0) && (_preDelete[0].Name == null || _preDelete[0].Name == ""))
             {
                 await DisplayAlert("Warning - Invalid Data!", "The first assessment you added is missing an assessment name. Please resolve.", "Ok");
                 return;
             }
-            else if (_preDelete != null && _preDelete.Count == 1 && _preDelete[0].Type == null)
+            else if (_preDelete != null && (_preDelete.Count == 1 && _preDelete[0].Id != 0) && _preDelete[0].Type == null)
             {
                 await DisplayAlert("Warning - Invalid Data!", "The first assessment you added is missing an assessment type. Please resolve.", "Ok");
                 return;
             }
-            else if (_preDelete != null && _preDelete.Count == 2 && (_preDelete[0].Name == null || _preDelete[0].Name == ""))
+            else if (_preDelete != null && (_preDelete.Count == 2 && _preDelete[0].Id != 0 && _preDelete[1].Id != 0) && (_preDelete[0].Name == null || _preDelete[0].Name == ""))
             {
                 await DisplayAlert("Warning - Invalid Data!", "The first assessment you added is missing an assessment name. Please resolve.", "Ok");
                 return;
             }
-            else if (_preDelete != null && _preDelete.Count == 2 && _preDelete[0].Type == null)
+            else if (_preDelete != null && (_preDelete.Count == 2 && _preDelete[0].Id != 0 && _preDelete[1].Id != 0) && _preDelete[0].Type == null)
             {
                 await DisplayAlert("Warning - Invalid Data!", "The first assessment you added is missing an assessment type. Please resolve.", "Ok");
                 return;
             }
-            else if (_preDelete != null && _preDelete.Count == 2 && (_preDelete[1].Name == null || _preDelete[1].Name == ""))
+            else if (_preDelete != null && (_preDelete.Count == 2 && _preDelete[0].Id != 0 && _preDelete[1].Id != 0) && (_preDelete[1].Name == null || _preDelete[1].Name == ""))
             {
                 await DisplayAlert("Warning - Invalid Data!", "The second assessment you added is missing an assessment name. Please resolve.", "Ok");
                 return;
             }
-            else if (_preDelete != null && _preDelete.Count == 2 && _preDelete[1].Type == null)
+            else if (_preDelete != null && (_preDelete.Count == 2 && _preDelete[0].Id != 0 && _preDelete[1].Id != 0) && _preDelete[1].Type == null)
             {
                 await DisplayAlert("Warning - Invalid Data!", "The second assessment you added is missing an assessment type. Please resolve.", "Ok");
                 return;
             }
-            else if (_preDelete != null && _preDelete.Count == 2 && _preDelete[0].Type == _preDelete[1].Type)
+            else if (_preDelete != null && (_preDelete.Count == 2 && _preDelete[0].Id != 0 && _preDelete[1].Id != 0) && _preDelete[0].Type == _preDelete[1].Type)
             {
                 await DisplayAlert("Warning - Incorrect Data!", "You may only assign one Performance Assessment and one Objective Assessment to a course.", "Ok");
                 return;
@@ -460,8 +479,11 @@ namespace CourseManager
                     }
                     LstAssessments.ItemsSource = assessments;
                     _toDelete.Add(assessmentId);
-                    var inPreDelete = _preDelete.FirstOrDefault(r => r.Id == assessmentId);
-                    _preDelete.Remove(inPreDelete);
+                    if (_preDelete != null)
+                    {
+                        var inPreDelete = _preDelete.FirstOrDefault(r => r.Id == assessmentId);
+                        _preDelete.Remove(inPreDelete);
+                    }
                 }
                 else
                 {
