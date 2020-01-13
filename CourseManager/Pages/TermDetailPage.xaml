@@ -40,58 +40,19 @@
                 <ColumnDefinition Width=".1*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Label x:Name="LblHeader"
-       Text="Edit Term Details"
-       Grid.Row="0"
-       Grid.Column="1"
-       Grid.ColumnSpan="6"
-       Style="{StaticResource LargeHeaderStyle}"></Label>
-            <Label x:Name="LblTermName" Text="Term Name"
-       Grid.Row="1"
-       Grid.Column="1"
-       Grid.ColumnSpan="2"
-       Style="{StaticResource SmallLabelStyle}">
-            </Label>
-            <Entry x:Name="TxtName" Grid.Row="1"
-       Grid.Column="2" Grid.ColumnSpan="4"
-       Text="{Binding Term.Name}"
-       Style="{StaticResource RegularEntry}"></Entry>
-            <Label x:Name="LblStart" Text="Start"
-       Grid.Row="2"
-       Grid.Column="1"
-       Grid.ColumnSpan="2"
-       Style="{StaticResource SmallLabelStyle}"></Label>
-            <DatePicker x:Name="DtpStart"
-                  Grid.Row="2"
-        Grid.Column="2"
-        Grid.ColumnSpan="4"
-        Date="{Binding Term.Start}"></DatePicker>
-            <Label Text="LblEnd"
-         Grid.Row="3"
-         Grid.Column="1"
-       Grid.ColumnSpan="2"
- Style="{StaticResource SmallLabelStyle}"></Label>
-            <DatePicker x:Name="DtpEnd"
-          Grid.Row="3"
-        Grid.Column="2"
-  Grid.ColumnSpan="4"
-        Date="{Binding Term.End}"></DatePicker>
-            <Button x:Name="BtnSave"
-        Clicked="BtnSave_Clicked"
-        Text="Save Term"
-        Style="{StaticResource RegularButtonStyle}"
-        Grid.Row="4"
-        Grid.Column="2"
-        Grid.ColumnSpan="2">
-            </Button>
+            <Label x:Name="LblHeader" Text="Edit Term Details"  Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="6" Style="{StaticResource LargeHeaderStyle}"></Label>
 
-            <Button x:Name="BtnDelete" Grid.Row ="4"
-              Grid.Column="4"
-            Grid.ColumnSpan="2"
-              Text="Delete Term"
-              CommandParameter="{Binding Term.Id}"
-              Clicked="BtnDelete_Clicked"
-              Style="{StaticResource RegularButtonStyle}"></Button>
+            <Label x:Name="LblTermName" Text="Term Name" Grid.Row="1"  Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource SmallLabelStyle}"></Label>
+            <Entry x:Name="TxtName" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4" Text="{Binding Term.Name}" Style="{StaticResource RegularEntry}"></Entry>
+
+            <Label x:Name="LblStart" Text="Start" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource SmallLabelStyle}"></Label>
+            <DatePicker x:Name="DtpStart" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" Date="{Binding Term.Start}"></DatePicker>
+
+            <Label Text="LblEnd"  Grid.Row="3"  Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource SmallLabelStyle}"></Label>
+            <DatePicker x:Name="DtpEnd"  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4"  Date="{Binding Term.End}"></DatePicker>
+
+            <Button x:Name="BtnSave" Clicked="BtnSave_Clicked" Text="Save Term" Style="{StaticResource RegularButtonStyle}" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"></Button>
+            <Button x:Name="BtnDelete" Grid.Row ="4" Grid.Column="4" Grid.ColumnSpan="2" Text="Delete Term"  CommandParameter="{Binding Term.Id}"  Clicked="BtnDelete_Clicked"  Style="{StaticResource RegularButtonStyle}"></Button>
 
             <Label x:Name="LblTermId" Grid.Row="4" Grid.Column="2"  IsVisible="False" Text="{Binding Term.Id}"></Label>
         </Grid>

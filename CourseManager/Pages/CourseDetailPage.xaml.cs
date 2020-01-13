@@ -17,12 +17,11 @@ namespace CourseManager
     public partial class CourseDetailPage : ContentPage
     {
         private readonly bool _addFlag;
-        private List<Assessment> _preDelete;
-        private List<int> _toDelete = new List<int>();
         private ObservableCollection<Course> _course;
         private ObservableCollection<Term> _term;
         private ObservableCollection<Assessment> _assessments;
-        private bool _emptyFlag = false;
+        private bool _fakeIdAdvanced = false;
+        private int _fakeId = -1;
 
         public CourseDetailPage(bool add, Course rawCourse, Term rawTerm, ObservableCollection<Assessment> assessments)
         {
@@ -48,7 +47,7 @@ namespace CourseManager
             if (add)
             {
                 BtnDelete.IsVisible = false;
-                LblHeader.Text = "Add Course";
+                LblHeader.Text = " Add Course";
             }
             PkrStatus.SelectedItem = course[0].Status;
         }
@@ -75,7 +74,7 @@ namespace CourseManager
             if (add)
             {
                 BtnDelete.IsVisible = false;
-                LblHeader.Text = "Add Course";
+                LblHeader.Text = " Add Course";
             }
         }
 
@@ -104,7 +103,7 @@ namespace CourseManager
                 PkrStatus.SelectedItem = course.Status;
                 DtpStart.Date = course.Start;
                 DtpEnd.Date = course.End;
-                if (_assessments.Count == 0)
+                if (_assessments == null || _assessments.Count == 0)
                 {
                     LstAssessments.IsVisible = false;
                     EmptyMessage.IsVisible = true;
@@ -143,19 +142,6 @@ namespace CourseManager
             await this.Navigation.PushAsync(page, true);
         }
 
-        private async void TxtName_Changed(object sender, TextChangedEventArgs e)
-        {
-            var textBox = (Entry)sender;
-            if (textBox.Text == "" || textBox.Text == null)
-            {
-                _emptyFlag = true;
-            }
-            else
-            {
-                _emptyFlag = false;
-            }
-        }
-
         private async void BtnShare_Clicked(object sender, EventArgs e)
         {
             if (TxtNotes.Text != "" && TxtNotes.Text != null)
@@ -174,11 +160,88 @@ namespace CourseManager
 
         private async void Save_Clicked(object sender, EventArgs e)
         {
-            if (_emptyFlag)
+            var courseCode = TxtCourseCode.Text;
+            var courseName = TxtName.Text;
+            var dueDate = DtpDueDate.Date;
+            var end = DtpEnd.Date;
+            var instructorEmail = TxtInstructorEmail.Text;
+            var instructorName = TxtInstructorName.Text;
+            var instructorPhone = TxtInstructorPhone.Text;
+            var name = TxtName.Text;
+            var notes = TxtNotes.Text;
+            var start = DtpStart.Date;
+            var listView = (ObservableCollection<Assessment>)LstAssessments.ItemsSource;
+            var performanceCount = 0;
+            var objectiveCount = 0;
+
+            foreach (var item in listView)
             {
-                await DisplayAlert("Warning - Invalid Data!", "Assessments must have names. Please resolve.", "Ok");
-                return;
+                if (item.Type == "Performance")
+                {
+                    performanceCount++;
+                }
+                if (item.Type == "Objective")
+                {
+                    objectiveCount++;
+                }
+                if (item.Name == "" || item.Name == null)
+                {
+                    await DisplayAlert("Warning - Invalid Data!", "Assessments must have names. Please resolve.", "Ok");
+                    return;
+                }
+                if (item.Type == "" || item.Type == null)
+                {
+                    await DisplayAlert("Warning - Invalid Data!", "Assessments must have types. Please resolve.", "Ok");
+                    return;
+                }
+                if (item.Start > item.End)
+                {
+                    await DisplayAlert("Warning - Invalid Data!", "Assessments cannot start after they end. Please resolve.", "Ok");
+                    return;
+                }
+                if (item.End < item.Start)
+                {
+                    await DisplayAlert("Warning - Invalid Data!", "Assessments cannot end before they end. Please resolve.", "Ok");
+                    return;
+                }
+
+                if (item.Start > dueDate)
+                {
+                    await DisplayAlert("Warning - Invalid Data!", "Assessments cannot start after the term/course due date. Please resolve.", "Ok");
+                    return;
+                }
+                if (item.End > dueDate)
+                {
+                    await DisplayAlert("Warning - Invalid Data!", "Assessments cannot end after the term/course due date. Please resolve.", "Ok");
+                    return;
+                }
+                if (item.Start < start)
+                {
+                    await DisplayAlert("Warning - Invalid Data!", "Assessments cannot start before the course start date.", "Ok");
+                    return;
+                }
+                if (item.Start > end)
+                {
+                    await DisplayAlert("Warning - Invalid Data!", "Assessments cannot start after the course end date.", "Ok");
+                    return;
+                }
+                if (item.End < start)
+                {
+                    await DisplayAlert("Warning - Invalid Data!", "Assessments cannot end before the course start date.", "Ok");
+                    return;
+                }
+                if (item.End > end)
+                {
+                    await DisplayAlert("Warning - Invalid Data!", "Assessments cannot end after the course end date.", "Ok");
+                    return;
+                }
+                if (objectiveCount > 1 || performanceCount > 1)
+                {
+                    await DisplayAlert("Warning - Invalid Data!", "There may only be on performance and one objective assessment selected.", "Ok");
+                    return;
+                }
             }
+
             var course = _course[0];
             int cu = 0;
             var validCu = (int.TryParse(TxtCu.Text, out int n));
@@ -194,18 +257,17 @@ namespace CourseManager
                 status = PkrStatus.SelectedItem.ToString();
             }
 
-            var courseCode = TxtCourseCode.Text;
-
-            var courseName = TxtName.Text;
-            var dueDate = DtpDueDate.Date;
-            var end = DtpEnd.Date;
-            var instructorEmail = TxtInstructorEmail.Text;
-            var instructorName = TxtInstructorName.Text;
-            var instructorPhone = TxtInstructorPhone.Text;
-            var name = TxtName.Text;
-            var notes = TxtNotes.Text;
-            var start = DtpStart.Date;
-            var due = DtpDueDate.Date;
+            //cu = 3;
+            //courseCode = "C001";
+            //dueDate = DateTime.Now;
+            //end = DateTime.Now;
+            //instructorEmail = "email@email.com";
+            //instructorName = "instructor";
+            //instructorPhone = "1111111111";
+            //name = "Intro to whatever";
+            //notes = "Notes";
+            //start = DateTime.Now;
+            //status = "In Progress";
 
             //// Setup regex for phone and postal code validations
             var phoneRegex = new Regex(@"^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$");
@@ -223,42 +285,7 @@ namespace CourseManager
                 invalidEmail = true;
             }
 
-            if (_preDelete != null && (_preDelete.Count == 1 && _preDelete[0].Id != 0) && (_preDelete[0].Name == null || _preDelete[0].Name == ""))
-            {
-                await DisplayAlert("Warning - Invalid Data!", "The first assessment you added is missing an assessment name. Please resolve.", "Ok");
-                return;
-            }
-            else if (_preDelete != null && (_preDelete.Count == 1 && _preDelete[0].Id != 0) && _preDelete[0].Type == null)
-            {
-                await DisplayAlert("Warning - Invalid Data!", "The first assessment you added is missing an assessment type. Please resolve.", "Ok");
-                return;
-            }
-            else if (_preDelete != null && (_preDelete.Count == 2 && _preDelete[0].Id != 0 && _preDelete[1].Id != 0) && (_preDelete[0].Name == null || _preDelete[0].Name == ""))
-            {
-                await DisplayAlert("Warning - Invalid Data!", "The first assessment you added is missing an assessment name. Please resolve.", "Ok");
-                return;
-            }
-            else if (_preDelete != null && (_preDelete.Count == 2 && _preDelete[0].Id != 0 && _preDelete[1].Id != 0) && _preDelete[0].Type == null)
-            {
-                await DisplayAlert("Warning - Invalid Data!", "The first assessment you added is missing an assessment type. Please resolve.", "Ok");
-                return;
-            }
-            else if (_preDelete != null && (_preDelete.Count == 2 && _preDelete[0].Id != 0 && _preDelete[1].Id != 0) && (_preDelete[1].Name == null || _preDelete[1].Name == ""))
-            {
-                await DisplayAlert("Warning - Invalid Data!", "The second assessment you added is missing an assessment name. Please resolve.", "Ok");
-                return;
-            }
-            else if (_preDelete != null && (_preDelete.Count == 2 && _preDelete[0].Id != 0 && _preDelete[1].Id != 0) && _preDelete[1].Type == null)
-            {
-                await DisplayAlert("Warning - Invalid Data!", "The second assessment you added is missing an assessment type. Please resolve.", "Ok");
-                return;
-            }
-            else if (_preDelete != null && (_preDelete.Count == 2 && _preDelete[0].Id != 0 && _preDelete[1].Id != 0) && _preDelete[0].Type == _preDelete[1].Type)
-            {
-                await DisplayAlert("Warning - Incorrect Data!", "You may only assign one Performance Assessment and one Objective Assessment to a course.", "Ok");
-                return;
-            }
-            else if (instructorName == "" || instructorName == null)
+            if (instructorName == "" || instructorName == null)
             {
                 await DisplayAlert("Warning - Invalid Data!", "Please enter an instructor name.", "Ok");
                 return;
@@ -303,16 +330,16 @@ namespace CourseManager
                 await DisplayAlert("Warning - Missing Data!", "The email adddress you have entered is not a proper email address format.", "Ok");
                 return;
             }
-            else if (start < DateTime.Now.Date && _addFlag)
-            {
-                await DisplayAlert("Warning - Data Problem!", "Start dates must not be in the past.", "Ok");
-                return;
-            }
-            else if (end < DateTime.Now.Date && _addFlag)
-            {
-                await DisplayAlert("Warning - Data Problem!", "End dates must not be in the past.", "Ok");
-                return;
-            }
+            //else if (start < DateTime.Now.Date && _addFlag)
+            //{
+            //    await DisplayAlert("Warning - Data Problem!", "Start dates must not be in the past.", "Ok");
+            //    return;
+            //}
+            //else if (end < DateTime.Now.Date && _addFlag)
+            //{
+            //    await DisplayAlert("Warning - Data Problem!", "End dates must not be in the past.", "Ok");
+            //    return;
+            //}
             else if (start > end.Date)
             {
                 await DisplayAlert("Warning - Data Problem!", "Start date cannot be after end date.", "Ok");
@@ -334,10 +361,13 @@ namespace CourseManager
                 var notifications = await App.Database.GetNotificationsAsync();
                 var filteredNotes = notifications.Where(r => r.CourseId == course.Id).ToList();
 
-                foreach (var note in filteredNotes)
+                if (filteredNotes.Count > 0)
                 {
-                    await App.Database.DeleteNotificationAsync(note);
-                    CrossLocalNotifications.Current.Cancel(note.Id);
+                    foreach (var note in filteredNotes)
+                    {
+                        await App.Database.DeleteNotificationAsync(note);
+                        CrossLocalNotifications.Current.Cancel(note.Id);
+                    }
                 }
 
                 var courseId = course.Id;
@@ -349,6 +379,8 @@ namespace CourseManager
                     title = "Course added.";
                     message = "Your course has been added.";
                 }
+
+                //temp
 
                 course.Cu = cu;
                 course.TermId = _term[0].Id;
@@ -365,13 +397,42 @@ namespace CourseManager
 
                 await App.Database.SaveCourseAsync(_course[0]);
 
+                // Delete all assessments and notifications for course
+                var assessments = await App.Database.GetAssessmentsAsync();
+                var filteredAssessments = assessments.Where(r => r.CourseId == course.Id).ToList();
+                if (filteredAssessments.Count > 0)
+                {
+                    foreach (var record in filteredAssessments)
+                    {
+                        var notez = await App.Database.GetNotificationsAsync();
+                        var filteredNotez = notez.Where(r => r.AssessmentId == record.Id).ToList();
+
+                        await App.Database.DeleteAssessmentAsync(record);
+                        _assessments.Remove(record);
+
+                        foreach (var note in filteredNotez)
+                        {
+                            await App.Database.DeleteNotificationAsync(note);
+                        }
+                    }
+                }
+
+                // WARNING FOR WHEN I TRY TO MAKE THIS BETTER:
+                // CROSSLOCALNOTIFICATIONS IS DIFFICULT TO WORK WITH.... I had to break this out into repeated non-dynamic code because shared code cause days of problems
+                // Also really hates working with objects that come from collections.... the objects cant be form a collection, new objects need to be created for each
+                // collection item.
+                // Tread cautiously...
+
+                var noteMessage = "";
+                var noteTitle = "";
+
                 if (course.Start.Date == DateTime.Now.Date)
                 {
                     var action = "Starting";
                     var date = course.Start;
 
-                    var noteMessage = $"{action} today:\n\n{course.CourseCode} - {course.Name}";
-                    var noteTitle = $"{course.CourseCode} - {action} today";
+                    noteMessage = $"{action} today:\n\n{course.CourseCode} - {course.Name}";
+                    noteTitle = $"{course.CourseCode} - {action} today";
                     var newNote = new LocalNotification(0, noteTitle, noteMessage, date, course.Id, -1);
 
                     await App.Database.SaveNotificationAsync(newNote);
@@ -382,60 +443,101 @@ namespace CourseManager
                     var action = "Ending";
                     var date = course.End;
 
-                    var noteMessage = $"{action} today:\n\n{course.CourseCode} - {course.Name}";
-                    var noteTitle = $"{course.CourseCode} - {action} today";
+                    noteMessage = $"{action} today:\n\n{course.CourseCode} - {course.Name}";
+                    noteTitle = $"{course.CourseCode} - {action} today";
                     var newNote = new LocalNotification(0, noteTitle, noteMessage, date, course.Id, -1);
 
                     await App.Database.SaveNotificationAsync(newNote);
                     CrossLocalNotifications.Current.Show(noteTitle, noteMessage, newNote.Id, date);
                 }
 
-                var assessmentz = (ObservableCollection<Assessment>)LstAssessments.ItemsSource;
-                foreach (var assessment in assessmentz)
-                {
-                    assessment.CourseId = course.Id;
-                    await App.Database.SaveAssessmentAsync(assessment);
-                }
+                // Add assessments from listitems to the database and create notifications
+                var assessmentsSource = (ObservableCollection<Assessment>)LstAssessments.ItemsSource;
 
-                if (_toDelete.Count > 0)
+                if (assessmentsSource.Count > 1)
                 {
-                    foreach (var recordId in _toDelete)
+                    var newAssessment = new Assessment(0, assessmentsSource[1].Name, assessmentsSource[1].Start, assessmentsSource[1].End, assessmentsSource[1].Type, course.Id);
+                    await App.Database.SaveAssessmentAsync(newAssessment);
+                    if (_assessments != null)
                     {
-                        var recordToDelete = await App.Database.GetAssessmentAsync(recordId);
-                        if (recordToDelete != null)
-                        {
-                            await App.Database.DeleteAssessmentAsync(recordToDelete);
-                        }
+                        _assessments.Add(newAssessment);
                     }
-                }
+                    else
+                    {
+                        _assessments = new ObservableCollection<Assessment>
+                        {
+                            newAssessment
+                        };
+                    }
 
-                var assessments = await App.Database.GetAssessmentsAsync();
-                var filteredAssessments = assessments.Where(r => r.CourseId == course.Id).ToList();
-                foreach (var azzezzment in filteredAssessments)
-                {
-                    if (azzezzment.Start.Date == DateTime.Now.Date)
+                    if (newAssessment.Start.Date == DateTime.Now.Date)
                     {
                         var action = "Starting";
-                        var date = azzezzment.Start;
+                        var date = newAssessment.Start;
 
                         // Add new notification
-                        var noteMessage = $"{action} today:\n\n{course.CourseCode} - {course.Name}";
-                        var noteTitle = $"{course.CourseCode} - {azzezzment.Name} - {action} today";
-                        var newNote = new LocalNotification(0, noteTitle, noteMessage, date, course.Id, azzezzment.Id);
+                        noteMessage = $"{action} today:\n\n{course.CourseCode} - {course.Name}";
+                        noteTitle = $"{course.CourseCode} - {newAssessment.Name} - {action} today";
+                        var newNote = new LocalNotification(0, noteTitle, noteMessage, date, course.Id, newAssessment.Id);
 
                         await App.Database.SaveNotificationAsync(newNote);
                         CrossLocalNotifications.Current.Show(noteTitle, noteMessage, newNote.Id, date);
                     }
 
-                    if (azzezzment.End.Date == DateTime.Now.Date)
+                    if (newAssessment.End.Date == DateTime.Now.Date)
                     {
                         var action = "Ending";
-                        var date = azzezzment.End;
+                        var date = newAssessment.End;
 
                         // Add new notification
-                        var noteMessage = $"{action} today:\n\n{course.CourseCode} - {course.Name}";
-                        var noteTitle = $"{course.CourseCode} - {azzezzment.Name} - {action} today";
-                        var newNote = new LocalNotification(0, noteTitle, noteMessage, date, course.Id, azzezzment.Id);
+                        noteMessage = $"{action} today:\n\n{course.CourseCode} - {course.Name}";
+                        noteTitle = $"{course.CourseCode} - {newAssessment.Name} - {action} today";
+                        var newNote = new LocalNotification(0, noteTitle, noteMessage, date, course.Id, newAssessment.Id);
+
+                        await App.Database.SaveNotificationAsync(newNote);
+                        CrossLocalNotifications.Current.Show(noteTitle, noteMessage, newNote.Id, date);
+                    }
+                }
+
+                if (assessmentsSource.Count > 0)
+                {
+                    var anotherAssessment = new Assessment(0, assessmentsSource[0].Name, assessmentsSource[0].Start, assessmentsSource[0].End, assessmentsSource[0].Type, course.Id);
+                    await App.Database.SaveAssessmentAsync(anotherAssessment);
+                    if (_assessments != null)
+                    {
+                        _assessments.Add(anotherAssessment);
+                    }
+                    else
+                    {
+                        _assessments = new ObservableCollection<Assessment>
+                        {
+                            anotherAssessment
+                        };
+                    }
+
+                    if (anotherAssessment.Start.Date == DateTime.Now.Date)
+                    {
+                        var action = "Starting";
+                        var date = anotherAssessment.Start;
+
+                        // Add new notification
+                        noteMessage = $"{action} today:\n\n{course.CourseCode} - {course.Name}";
+                        noteTitle = $"{course.CourseCode} - {anotherAssessment.Name} - {action} today";
+                        var newNote = new LocalNotification(0, noteTitle, noteMessage, date, course.Id, anotherAssessment.Id);
+
+                        await App.Database.SaveNotificationAsync(newNote);
+                        CrossLocalNotifications.Current.Show(noteTitle, noteMessage, newNote.Id, date);
+                    }
+
+                    if (anotherAssessment.End.Date == DateTime.Now.Date)
+                    {
+                        var action = "Ending";
+                        var date = anotherAssessment.End;
+
+                        // Add new notification
+                        noteMessage = $"{action} today:\n\n{course.CourseCode} - {course.Name}";
+                        noteTitle = $"{course.CourseCode} - {anotherAssessment.Name} - {action} today";
+                        var newNote = new LocalNotification(0, noteTitle, noteMessage, date, course.Id, anotherAssessment.Id);
 
                         await App.Database.SaveNotificationAsync(newNote);
                         CrossLocalNotifications.Current.Show(noteTitle, noteMessage, newNote.Id, date);
@@ -443,7 +545,6 @@ namespace CourseManager
                 }
 
                 await DisplayAlert(title, message, "Ok");
-
                 Return();
             }
         }
@@ -458,6 +559,7 @@ namespace CourseManager
             //Get whats in the list before delete
             var button = (ImageButton)sender;
             var assessmentId = Convert.ToInt32(button.CommandParameter.ToString());
+            _fakeId = assessmentId;
             var assessment = await App.Database.GetAssessmentAsync(assessmentId);
 
             if (assessment != null)
@@ -468,7 +570,7 @@ namespace CourseManager
                 {
                     var courseId = assessment.CourseId;
                     var rawAssessments = (ObservableCollection<Assessment>)LstAssessments.ItemsSource;
-                    var assessmentsForCourse = rawAssessments.Where(r => r.CourseId == courseId).ToList();
+                    var assessmentsForCourse = rawAssessments.ToList();
                     assessmentsForCourse.RemoveAll(r => r.Id == assessmentId);
                     var assessments = new ObservableCollection<Assessment>(assessmentsForCourse);
 
@@ -477,61 +579,30 @@ namespace CourseManager
                         LstAssessments.IsVisible = false;
                         EmptyMessage.IsVisible = true;
                     }
+                    await App.Database.DeleteAssessmentAsync(assessment);
                     LstAssessments.ItemsSource = assessments;
-                    _toDelete.Add(assessmentId);
-                    if (_preDelete != null)
-                    {
-                        var inPreDelete = _preDelete.FirstOrDefault(r => r.Id == assessmentId);
-                        _preDelete.Remove(inPreDelete);
-                    }
                 }
                 else
                 {
-                    var allAssessments = await App.Database.GetAssessmentsAsync();
-                    var next = allAssessments.Max(r => r.Id);
-                    var newAssessment = new Assessment(next, assessment.Name, assessment.Start, assessment.End, assessment.Type, _course[0].Id);
-                    await App.Database.SaveAssessmentAsync(newAssessment);
+                    //var allAssessments = await App.Database.GetAssessmentsAsync();
+                    //var next = allAssessments.Max(r => r.Id);
+                    //var newAssessment = new Assessment(next, assessment.Name, assessment.Start, assessment.End, assessment.Type, _course[0].Id);
+                    //await App.Database.SaveAssessmentAsync(newAssessment);
                 }
             }
             else
             {
-                var rawAssessments = (ObservableCollection<Assessment>)LstAssessments.ItemsSource;
-                rawAssessments.RemoveAt(0);
-                var assessments = new ObservableCollection<Assessment>(rawAssessments);
-                LstAssessments.ItemsSource = assessments;
-            }
+                // Delete temporary assessment from listview
 
-            if (_preDelete != null)
-            {
-                if (_preDelete.Count == 1)
+                var listView = (ObservableCollection<Assessment>)LstAssessments.ItemsSource;
+                if (listView.Count > 0)
                 {
-                    var preDelete = new ObservableCollection<Assessment>(_preDelete);
-                    var tempListView = new ListView
-                    {
-                        ItemsSource = preDelete
-                    };
-
-                    var list = (ObservableCollection<Assessment>)tempListView.ItemsSource;
-
-                    if (assessment == null && list.Count == 0)
-                    {
-                        var previousAssessment = (ObservableCollection<Assessment>)tempListView.ItemsSource;
-                        if (previousAssessment.Count == 1)
-                        {
-                            if (previousAssessment[0].CourseId == 0 && previousAssessment[0].Id == 0)
-                            {
-                                LstAssessments.ItemsSource = new ObservableCollection<Assessment>();
-                            }
-                        }
-                    }
-                    if (assessment == null && list.Count == 1)
-                    {
-                        LstAssessments.ItemsSource = tempListView.ItemsSource;
-                    }
-                    else
-                    {
-                        LstAssessments.ItemsSource = new ObservableCollection<Assessment>();
-                    }
+                    var newList = listView.Where(r => r.Id != assessmentId).ToList();
+                    LstAssessments.ItemsSource = new ObservableCollection<Assessment>(newList);
+                }
+                else
+                {
+                    LstAssessments.ItemsSource = new ObservableCollection<Assessment>();
                 }
             }
         }
@@ -579,16 +650,21 @@ namespace CourseManager
                 await DisplayAlert("Warning!", "You may only have 2 assessments registered for a given course.", "Ok");
                 return;
             }
-            IEnumerable<Assessment> obsCollection = (IEnumerable<Assessment>)LstAssessments.ItemsSource;
-            _preDelete = new List<Assessment>(obsCollection);
             LstAssessments.IsVisible = true;
             EmptyMessage.IsVisible = false;
-
-            var assessment = new Assessment();
+            var assessment = new Assessment(_fakeId);
+            //await DisplayAlert("stuff", _fakeId.ToString(), "Ok");
             assessments.Add(assessment);
-            _preDelete.Add(assessment);
 
             LstAssessments.ItemsSource = assessments;
+            if (_fakeId == -1)
+            {
+                _fakeId--;
+            }
+            else
+            {
+                _fakeId++;
+            }
         }
     }
 }

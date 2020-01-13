@@ -20,6 +20,13 @@ namespace CourseManager.Model
             _end = DateTime.Now;
         }
 
+        public Assessment(int fakeId)
+        {
+            _id = fakeId;
+            _start = DateTime.Now;
+            _end = DateTime.Now;
+        }
+
         public Assessment(int id, string name, DateTime start, DateTime end, string type, int courseId)
         {
             _id = id;

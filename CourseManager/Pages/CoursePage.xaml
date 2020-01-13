@@ -92,14 +92,14 @@
     </ContentPage.Resources>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="add.png" Text="Add Course" Clicked="Add_Clicked" />
+        <ToolbarItem Icon="add.png" Text=" Add Course" Clicked="Add_Clicked" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.BindingContext>
         <viewmodel:CourseViewModel></viewmodel:CourseViewModel>
     </ContentPage.BindingContext>
     <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent">
-        <Label x:Name="EmptyMessage" HeightRequest="700" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Text="No courses to display... Tap here to add a new course." IsVisible="False" BackgroundColor="Transparent" />
+        <Label x:Name="EmptyMessage" HeightRequest="700" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Text="No courses to display... Tap here or the add course button to add one." IsVisible="False" BackgroundColor="Transparent" />
         <ListView  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"
           CachingStrategy="RecycleElement"
           x:Name="CoursesListView"

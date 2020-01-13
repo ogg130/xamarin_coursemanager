@@ -24,7 +24,7 @@ namespace CourseManager
             if (add)
             {
                 BtnDelete.IsVisible = false;
-                LblHeader.Text = "Add Term";
+                LblHeader.Text = " Add Term";
             }
             var termList = new List<Term>();
             termList.Add(rawTerm);
@@ -72,14 +72,14 @@ namespace CourseManager
             {
                 await DisplayAlert("Warning - Missing Data!", "Terms must have a name.", "Ok");
             }
-            else if (start < now && _addFlag)
-            {
-                await DisplayAlert("Warning - Data Problem!", "Start dates must not be in the past.", "Ok");
-            }
-            else if (end < now && _addFlag)
-            {
-                await DisplayAlert("Warning - Data Problem!", "End dates must not be in the past.", "Ok");
-            }
+            //else if (start < now && _addFlag)
+            //{
+            //    await DisplayAlert("Warning - Data Problem!", "Start dates must not be in the past.", "Ok");
+            //}
+            //else if (end < now && _addFlag)
+            //{
+            //    await DisplayAlert("Warning - Data Problem!", "End dates must not be in the past.", "Ok");
+            //}
             else if (start > end)
             {
                 await DisplayAlert("Warning - Data Problem!", "Start date cannot be after end date.", "Ok");

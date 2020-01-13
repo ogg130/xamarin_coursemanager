@@ -24,7 +24,7 @@
 
     <ContentPage.ToolbarItems>
 
-        <ToolbarItem Icon="add.png" Text="Add Term" Clicked="BtnAdd_Clicked" />
+        <ToolbarItem Icon="add.png" Text=" Add Term" Clicked="BtnAdd_Clicked" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.BindingContext>
@@ -87,7 +87,7 @@
 
     <StackLayout BackgroundColor="Transparent">
 
-        <Label x:Name="EmptyMessage" HeightRequest="700" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Text="No terms to display... Tap here to add a new term." IsVisible="False" BackgroundColor="Transparent" />
+        <Label x:Name="EmptyMessage" HeightRequest="700" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Text="No terms to display... Tap here or the add term button to add one." IsVisible="False" BackgroundColor="Transparent" />
         <ListView  Grid.Row="0" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"
           CachingStrategy="RecycleElement"
           x:Name="lstTerms"

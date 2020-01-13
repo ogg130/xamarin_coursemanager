@@ -1,7 +1,3 @@
-D:\repos\CourseManager\CourseManager\bin\Debug\netstandard2.0\CourseManager.deps.json
-D:\repos\CourseManager\CourseManager\bin\Debug\netstandard2.0\CourseManager.dll
-D:\repos\CourseManager\CourseManager\bin\Debug\netstandard2.0\ref\CourseManager.dll
-D:\repos\CourseManager\CourseManager\bin\Debug\netstandard2.0\CourseManager.pdb
 D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
 D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\Pages\CourseDetailPage.xaml.g.cs
@@ -11,6 +7,10 @@ D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\Pages\TermPage.xam
 D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\CourseManager.csproj.CoreCompileInputs.cache
 D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\CourseManager.AssemblyInfoInputs.cache
 D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\CourseManager.AssemblyInfo.cs
+D:\repos\CourseManager\CourseManager\bin\Debug\netstandard2.0\CourseManager.deps.json
+D:\repos\CourseManager\CourseManager\bin\Debug\netstandard2.0\CourseManager.dll
+D:\repos\CourseManager\CourseManager\bin\Debug\netstandard2.0\ref\CourseManager.dll
+D:\repos\CourseManager\CourseManager\bin\Debug\netstandard2.0\CourseManager.pdb
 D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\XamlC.stamp
 D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\CourseManager.dll
 D:\repos\CourseManager\CourseManager\obj\Debug\netstandard2.0\ref\CourseManager.dll
