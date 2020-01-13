@@ -10,3 +10,8 @@ I self-learned Xamarin by taking two pluralsight courses:
 	https://www.pluralsight.com/courses/data-binding-xamarin-forms
 	
 ... and then created this in about 2 weeks.
+
+![GitHub Logo](Screenshot_20200112-231249.png)
+![GitHub Logo](Screenshot_20200112-231300.png)
+![GitHub Logo](Screenshot_20200112-231327.png)
+![GitHub Logo](Screenshot_20200112-231339.png)
