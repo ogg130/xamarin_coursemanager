@@ -43,34 +43,6 @@ namespace CourseManager.Model
                         Name = "Term 1",
                         Start = new DateTime(2020, 1, 1),
                         End = new DateTime(2020, 6, 30)
-                    },
-                    new Term
-                    {
-                        Id = 0,
-                        Name = "Term 2",
-                        Start = new DateTime(2020, 1, 1),
-                        End = new DateTime(2020, 6, 30)
-                    },
-                     new Term
-                    {
-                        Id = 0,
-                        Name = "Term 3",
-                        Start = new DateTime(2020, 1, 1),
-                        End = new DateTime(2020, 6, 30)
-                    },
-                   new Term
-                    {
-                        Id = 0,
-                        Name = "Term 4",
-                        Start = new DateTime(2020, 1, 1),
-                        End = new DateTime(2020, 6, 30)
-                    },
-                    new Term
-                    {
-                        Id = 0,
-                        Name = "Term 5",
-                        Start = new DateTime(2020, 1, 1),
-                        End = new DateTime(2020, 6, 30)
                     }
                 };
 
@@ -93,65 +65,33 @@ namespace CourseManager.Model
                             InstructorEmail = "rogden1@wgu.edu",
                             InstructorPhone = "(602)550-7980",
                             Notes = "These are notes... lots of notes... I like to write notes beacause notes are cool. Here are some more notes and a few more. These are very descriptive notes, I hope I get a lot out of them."
-                        },
-                         new Course
-                        {
-                            Id = 0,
-                            TermId = 1,
-                            Name = "Intro to Basketweaving",
-                            Start = DateTime.Now.Date,
-                            End = new DateTime(2020, 5, 30),
-                            DueDate = new DateTime(2020, 6, 30),
-                            Cu = 3,
-                            CourseCode = "C999",
-                            Status = "Plan to Take",
-                            InstructorName = "Robert T Ogden III",
-                            InstructorEmail = "rogden1@wgu.edu",
-                            InstructorPhone = "(602)550-7980",
-                            Notes = "These are notes... lots of notes... I like to write notes beacause notes are cool. Here are some more notes and a few more. These are very descriptive notes, I hope I get a lot out of them."
-                        },
-                        new Course
-                        {
-                            Id = 0,
-                            TermId = 1,
-                            Name = "Advanced Basketweaving",
-                            Start = DateTime.Now.Date,
-                            End = new DateTime(2020, 5, 30),
-                            DueDate = new DateTime(2020, 6, 30),
-                            Cu = 4,
-                            CourseCode = "C000",
-                            Status = "Plan to Take",
-                            InstructorName = "Robert T Ogden III",
-                            InstructorEmail = "rogden1@wgu.edu",
-                            InstructorPhone = "(602)550-7980",
-                            Notes = "These are notes... lots of notes... I like to write notes beacause notes are cool. Here are some more notes and a few more. These are very descriptive notes, I hope I get a lot out of them."
                         }
                     };
-                }
 
-                if (Assessments == null)
-                {
-                    Assessments = new ObservableCollection<Assessment>
-                {
-                    new Assessment
+                    if (Assessments == null)
                     {
-                        Id = 0,
-                        CourseId = 1,
-                        Name = "Assessment 1",
-                        Start = DateTime.Now.Date,
-                        End = new DateTime(2020, 4, 15),
-                        Type = "Performance",
-                    },
-                    new Assessment
-                    {
-                        Id = 0,
-                        CourseId = 1,
-                        Name = "Assessment 2",
-                        Start = new DateTime(2020, 5, 1),
-                        End = DateTime.Now.Date,
-                        Type = "Objective",
-                    },
-                };
+                        Assessments = new ObservableCollection<Assessment>
+                        {
+                            new Assessment
+                            {
+                                Id = 0,
+                                CourseId = 1,
+                                Name = "Assessment 1",
+                                Start = DateTime.Now.Date,
+                                End = new DateTime(2020, 4, 15),
+                                Type = "Performance",
+                            },
+                            new Assessment
+                            {
+                                Id = 0,
+                                CourseId = 1,
+                                Name = "Assessment 2",
+                                Start = new DateTime(2020, 5, 1),
+                                End = DateTime.Now.Date,
+                                Type = "Objective",
+                            },
+                        };
+                    }
                 }
             }
         }

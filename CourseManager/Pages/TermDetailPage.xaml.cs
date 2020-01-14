@@ -14,7 +14,6 @@ namespace CourseManager
     {
         private readonly bool _addFlag;
         private ObservableCollection<Term> _term;
-        private ObservableCollection<Term> _terms;
 
         public TermDetailPage(bool add, Term rawTerm)
         {
@@ -51,7 +50,7 @@ namespace CourseManager
         private async void Return()
         {
             var viewModel = new TermViewModel();
-
+            var terms = App.Database.GetTermsAsync();
             var page = new TermPage(_term[0])
             {
                 BindingContext = viewModel
@@ -100,7 +99,7 @@ namespace CourseManager
                 term.Start = start;
                 term.End = end;
 
-                await App.Database.SaveTermAsync(_term[0]);
+                await App.Database.SaveTermAsync(term);
 
                 await DisplayAlert(title, message, "Ok");
 

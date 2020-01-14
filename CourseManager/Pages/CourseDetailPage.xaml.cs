@@ -194,43 +194,43 @@ namespace CourseManager
                     await DisplayAlert("Warning - Invalid Data!", "Assessments must have types. Please resolve.", "Ok");
                     return;
                 }
-                if (item.Start > item.End)
+                if (item.Start.Date > item.End.Date)
                 {
                     await DisplayAlert("Warning - Invalid Data!", "Assessments cannot start after they end. Please resolve.", "Ok");
                     return;
                 }
-                if (item.End < item.Start)
+                if (item.End.Date < item.Start.Date)
                 {
                     await DisplayAlert("Warning - Invalid Data!", "Assessments cannot end before they end. Please resolve.", "Ok");
                     return;
                 }
 
-                if (item.Start > dueDate)
+                if (item.Start.Date > dueDate.Date)
                 {
                     await DisplayAlert("Warning - Invalid Data!", "Assessments cannot start after the term/course due date. Please resolve.", "Ok");
                     return;
                 }
-                if (item.End > dueDate)
+                if (item.End.Date > dueDate.Date)
                 {
                     await DisplayAlert("Warning - Invalid Data!", "Assessments cannot end after the term/course due date. Please resolve.", "Ok");
                     return;
                 }
-                if (item.Start < start)
+                if (item.Start.Date < start.Date)
                 {
                     await DisplayAlert("Warning - Invalid Data!", "Assessments cannot start before the course start date.", "Ok");
                     return;
                 }
-                if (item.Start > end)
+                if (item.Start.Date > end.Date)
                 {
                     await DisplayAlert("Warning - Invalid Data!", "Assessments cannot start after the course end date.", "Ok");
                     return;
                 }
-                if (item.End < start)
+                if (item.End.Date < start.Date)
                 {
                     await DisplayAlert("Warning - Invalid Data!", "Assessments cannot end before the course start date.", "Ok");
                     return;
                 }
-                if (item.End > end)
+                if (item.End.Date > end.Date)
                 {
                     await DisplayAlert("Warning - Invalid Data!", "Assessments cannot end after the course end date.", "Ok");
                     return;
@@ -340,7 +340,7 @@ namespace CourseManager
             //    await DisplayAlert("Warning - Data Problem!", "End dates must not be in the past.", "Ok");
             //    return;
             //}
-            else if (start > end.Date)
+            else if (start.Date > end.Date)
             {
                 await DisplayAlert("Warning - Data Problem!", "Start date cannot be after end date.", "Ok");
 

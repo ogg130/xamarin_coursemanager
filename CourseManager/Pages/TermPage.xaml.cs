@@ -43,7 +43,9 @@ namespace CourseManager
             {
                 settings = null;
             }
+
             //settings = null;
+
             if (settings == null)
             {
                 App.Database.DropTables();
